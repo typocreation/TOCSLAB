@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy to Apache Server') {
             steps {
                 // Use SSH credentials with ID 'keyForApache'
-                sshagent(['Apache_031']) {
+                sshagent(['apache']) {
                     sh '''
                     # Clean up target directory on the server
                     ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} "rm -rf ${TARGET_DIR}/*"
